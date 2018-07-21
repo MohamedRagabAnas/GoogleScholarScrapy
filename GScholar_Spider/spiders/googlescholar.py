@@ -24,7 +24,7 @@ class GooglescholarSpider(scrapy.Spider):
             link= author.xpath('.//h3[@class="gsc_oai_name"]/a/@href').extract_first()
             aff= author.xpath('.//*[@class="gsc_oai_aff"]/text()').extract_first()
             email= author.xpath('.//*[@class="gsc_oai_eml"]/text()').extract_first()
-            citedby=author.xpath('.//*[@class="gsc_oai_cby"]/text()').extract_first()
+            citedby=str(author.xpath('.//*[@class="gsc_oai_cby"]/text()').extract_first()).replace('Cited by ', '')
             topics=author.xpath('.//*[@class="gsc_oai_one_int"]/text()').extract()
             yield{'Name':name,'Link':'https://scholar.google.com'+link, 'Affiliation':aff, 'email':email,'citedby':citedby,'Topics':topics}
 			
