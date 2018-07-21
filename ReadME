@@ -1,0 +1,4 @@
+In order to run this script:
+use the commandline in the GScholar_Spider directory:
+scrapy crawl <nameOfSpider> -o <nameOfFile>.csv
+scrapy crawl googlescholar -o Output.csv
